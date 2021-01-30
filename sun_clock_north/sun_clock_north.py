@@ -4,7 +4,9 @@
 # Methods
 # Get North
 def get_north(hour, zero_point):
-    print(hour)
+    angle = int(360 / 12 * hour)
+    north = (360 - (zero_point * 30) - angle) / 2
+    print(north)
 
 
 # Main Program
@@ -24,12 +26,12 @@ while loop:
 
     if menu == "s":
         print()
-        time_input = input("1Please enter the time (hh:mm)")
+        time_input = input("Please enter the time (hh:mm)")
         time = int(time_input[:2])
         get_north(time, 0)
     elif menu == "w":
         print()
-        time_input = input("2Please enter the time (hh:mm)")
+        time_input = input("Please enter the time (hh:mm)")
         time = int(time_input[:2])
         get_north(time, 1)
     elif menu == "e":
