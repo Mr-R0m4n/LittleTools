@@ -25,14 +25,28 @@ while loop:
 
     if menu == "s":
         print()
-        time_input = input("Please enter the time (hh:mm)")
-        time = int(time_input[:2])
+        entry = False
+        while not entry:
+            try:
+                time_input = input("Please enter the time (hh:mm)")
+                time = int(time_input[:2])
+            except ValueError:
+                print("Invalid Entry")
+            else:
+                entry = True
         print("When you point your hour hand to the sun at " + str(time) + " o´clock, "
         "north will be around at: " + str(get_north(time, 30)) + " o´clock")
     elif menu == "w":
         print()
-        time_input = input("Please enter the time (hh:mm)")
-        time = int(time_input[:2])
+        entry = False
+        while not entry:
+            try:
+                time_input = input("Please enter the time (hh:mm)")
+                time = int(time_input[:2])
+            except ValueError:
+                print("Invalid Entry")
+            else:
+                entry = True
         print("When you point your hour hand to the sun at " + str(time) + " o´clock, "
         "north will be around at: " + str(get_north(time, 0)) + " o´clock")
     elif menu == "e":
