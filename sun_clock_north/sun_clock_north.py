@@ -3,15 +3,14 @@
 
 # Methods
 # Get North
-def get_north(hour, zero_point):
-    angle = int(360 / 12 * hour)
-    north = (360 - (zero_point * 30) - angle) / 2
-    print(north)
+def get_north(hour, season):
+    angle = int((hour * (360/12) + season))
+    north = int((angle / 2 + 180)/30)
+    return north
 
 
-# Main Program
+# Main program
 # Menu
-
 print("********************************************")
 print("  Find North with position of sun and time")
 print("********************************************")
@@ -28,12 +27,14 @@ while loop:
         print()
         time_input = input("Please enter the time (hh:mm)")
         time = int(time_input[:2])
-        get_north(time, 0)
+        print("When you point your hour hand to the sun at " + str(time) + " o´clock, "
+        "north will be around at: " + str(get_north(time, 30)) + " o´clock")
     elif menu == "w":
         print()
         time_input = input("Please enter the time (hh:mm)")
         time = int(time_input[:2])
-        get_north(time, 1)
+        print("When you point your hour hand to the sun at " + str(time) + " o´clock, "
+        "north will be around at: " + str(get_north(time, 0)) + " o´clock")
     elif menu == "e":
         print("Bye until later!")
         exit()
