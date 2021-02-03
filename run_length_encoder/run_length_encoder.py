@@ -1,26 +1,22 @@
-message = input()
+message = "ABBCCCDDDDEEEEEDDDDCCCBBAGGGGGBB"
 
 
-def lauflaengencodierung(data):
-    liste = []
-    ergebnis = ""
+def rle(data):
+    i = 0
     counter = 1
-    i = 1
+    result = ""
 
-    for char in data:
-        liste.append(char)
-
-    while i != len(liste):
-        if liste[0] == liste[i]:
+    while i < len(data)-1:
+        if data[i] == data[i+1]:
             counter = counter + 1
         else:
-            ergebnis = ergebnis + str(counter) + liste[0]
+            result = result + str(counter) + data[i]
             counter = 1
-        liste[0] = liste[i]
         i = i + 1
-    letze_ziffer = str(counter) + liste[0]
+    if i == len(data)-1:
+        result = result + str(counter) + data[i]
 
-    print(ergebnis + letze_ziffer)
+    print(result)
 
 
-lauflaengencodierung(message)
+rle(message)
